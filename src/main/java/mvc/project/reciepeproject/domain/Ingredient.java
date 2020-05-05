@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
-public class Ingredients {
+public class Ingredient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -12,6 +12,8 @@ public class Ingredients {
     private BigDecimal amount;
     @ManyToOne
     private Recipe recipe;
+    @OneToOne(fetch = FetchType.EAGER)//It's default foe 1to1 but this is how can be mentioned explicitly
+    private UnitOfMeasure unitOfMeasure;
 
     public Long getId() {
         return id;
@@ -43,5 +45,13 @@ public class Ingredients {
 
     public void setRecipe(Recipe recipe) {
         this.recipe = recipe;
+    }
+
+    public UnitOfMeasure getUnitOfMeasure() {
+        return unitOfMeasure;
+    }
+
+    public void setUnitOfMeasure(UnitOfMeasure unitOfMeasure) {
+        this.unitOfMeasure = unitOfMeasure;
     }
 }
