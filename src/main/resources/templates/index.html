@@ -5,6 +5,16 @@
     <title>Recipe Home</title>
 </head>
 <body>
-    <h1>My Recipes will be listed here....soon after its built on webpage as we are testing in the environment</h1>
+    <h1>My Recipes!</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Description</th>
+    </tr>
+    <tr th:each="recipe: ${recipes}">
+        <td th:text="${recipe.id}">1</td>
+        <td th:text="${recipe.description}"></td>
+    </tr>
+</table>
 </body>
 </html>
