@@ -1,7 +1,10 @@
 package mvc.project.reciepeproject.domain;
 
+import lombok.*;
+
 import javax.persistence.*;
 
+@Data
 @Entity
 public class UnitOfMeasure {
     @Id
@@ -10,28 +13,4 @@ public class UnitOfMeasure {
     private String description;
     @OneToOne
     private Ingredient ingredient;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getUom() {
-        return description;
-    }
-
-    public void setUom(String description) {
-        this.description = description ;
-    }
-
-    public Ingredient getIngredient() {
-        return ingredient;
-    }
-
-    public void setIngredient(Ingredient ingredient) {
-        this.ingredient = ingredient;
-    }
 }
