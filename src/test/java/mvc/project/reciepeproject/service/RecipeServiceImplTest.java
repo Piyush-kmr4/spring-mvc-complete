@@ -1,5 +1,7 @@
 package mvc.project.reciepeproject.service;
 
+import mvc.project.reciepeproject.converters.RecipeCommandToRecipe;
+import mvc.project.reciepeproject.converters.RecipeToRecipeCommand;
 import mvc.project.reciepeproject.domain.Recipe;
 import mvc.project.reciepeproject.repositories.RecipeRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -20,11 +22,15 @@ class RecipeServiceImplTest {
     RecipeServiceImpl recipeService;
     @Mock
     RecipeRepository recipeRepository;
+    @Mock
+    RecipeCommandToRecipe recipeCommandToRecipe;
+    @Mock
+    RecipeToRecipeCommand recipeToRecipeCommand;
 
     @BeforeEach
     void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
-        recipeService = new RecipeServiceImpl(recipeRepository);
+        recipeService = new RecipeServiceImpl(recipeRepository, recipeCommandToRecipe, recipeToRecipeCommand);
     }
 
     @Test
