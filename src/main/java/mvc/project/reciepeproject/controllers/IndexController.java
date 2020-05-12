@@ -19,7 +19,6 @@ public class IndexController {
     @RequestMapping({"","/","index"})
     public String getIndexPage(Model model){
         log.debug("Inside Index Controller..");
-        System.out.println("Checking Live Reload.....");
         model.addAttribute("recipes",recipeService.getRecipes());
         return "index";
     }
