@@ -35,7 +35,7 @@ class IngredientsControllerTest {
     }
 
     @Test
-    void listIngrdients() throws Exception {
+    public void testListIngredients() throws Exception {
         //given
         RecipeCommand recipeCommand = new RecipeCommand();
         when(recipeService.findCommandById(anyLong())).thenReturn(recipeCommand);
@@ -45,6 +45,7 @@ class IngredientsControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(view().name("recipe/ingredient/list"))
                 .andExpect(model().attributeExists("recipe"));
+
         //then
         verify(recipeService, times(1)).findCommandById(anyLong());
     }
