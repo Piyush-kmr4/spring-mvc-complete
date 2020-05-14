@@ -57,7 +57,6 @@ public class IngredientsController {
 
         IngredientCommand savedCommand = ingredientService.saveIngredientCommand(command);
 
-        log.debug("saved receipe id:" + savedCommand.getRecipeId()+ " in saveorUpdate method with ingredient id: "+ savedCommand.getUnitOfMeasure().getId());
         log.debug("saved ingredient id:" + savedCommand.getId());
 
         return "redirect:/recipe/" + savedCommand.getRecipeId() + "/ingredient/" + savedCommand.getId() + "/show";
