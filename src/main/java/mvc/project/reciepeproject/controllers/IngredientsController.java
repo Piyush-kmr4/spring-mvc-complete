@@ -55,6 +55,7 @@ public class IngredientsController {
     @PostMapping("recipe/{recipeId}/ingredient")
     public String saveOrUpdate(@ModelAttribute IngredientCommand command){
         log.error("starting in method 2----------------");
+        log.error("UOM id:  ----------------- "+command.getUnitOfMeasure().getId());
         IngredientCommand savedCommand = ingredientService.saveIngredientCommand(command);
         log.error("ingredient loaded....");
         log.debug("saved receipe id:" + savedCommand.getRecipeId()+ " in saveorUpdate method with ingredient id: "+ savedCommand.getUnitOfMeasure().getId());
