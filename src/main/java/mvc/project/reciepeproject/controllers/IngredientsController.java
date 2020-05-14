@@ -2,6 +2,8 @@ package mvc.project.reciepeproject.controllers;
 
 import lombok.extern.slf4j.Slf4j;
 import mvc.project.reciepeproject.commands.IngredientCommand;
+import mvc.project.reciepeproject.commands.RecipeCommand;
+import mvc.project.reciepeproject.commands.UnitOfMeasureCommand;
 import mvc.project.reciepeproject.service.IngredientService;
 import mvc.project.reciepeproject.service.RecipeService;
 import mvc.project.reciepeproject.service.UnitOfMeasureService;
@@ -38,6 +40,27 @@ public class IngredientsController {
                                        @PathVariable String id, Model model){
         model.addAttribute("ingredient", ingredientService.findRecipeIdAndIngredientId(Long.valueOf(recipeId), Long.valueOf(id)));
         return "recipe/ingredient/show";
+    }
+
+    @GetMapping
+    @RequestMapping("recipe/{recipeId}/ingredient/new")
+    public String newRecipe(@PathVariable String recipeId, Model model){
+
+        //need to be sure that we have good id value
+        RecipeCommand recipeCommand = recipeService.findCommandById(Long.valueOf(recipeId));
+        //todo- raise exception if null
+
+        //need to return back parent id for hidden form property
+        IngredientCommand ingredientCommand = new IngredientCommand();
+        ingredientCommand.setRecipeId(Long.valueOf(recipeId));
+        model.addAttribute("ingredient", ingredientCommand);
+
+        //init uom
+        ingredientCommand.setUnitOfMeasure(new UnitOfMeasureCommand());
+        model.addAttribute("uomList", unitOfMeasureService.listAllUoms());
+
+        return "recipe/ingredient/ingredientform";
+
     }
 
     @GetMapping
