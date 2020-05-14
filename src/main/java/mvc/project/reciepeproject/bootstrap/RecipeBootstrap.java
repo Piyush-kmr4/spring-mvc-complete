@@ -40,28 +40,28 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         //get Unit Of Measure
         Optional<UnitOfMeasure> eachUOMOptional = unitOfMeasureRepository.findByDescription("Each");
         if(!eachUOMOptional.isPresent())
-            //throw new RuntimeException("'Each' UOM not found....");
-            log.debug("'EachUOM' not found");
+            throw new RuntimeException("'Each' UOM not found....");
+           // log.debug("'EachUOM' not found");
         Optional<UnitOfMeasure> tableSpoonOptional = unitOfMeasureRepository.findByDescription("Tablespoon");
         if(!tableSpoonOptional.isPresent())
-            //throw new RuntimeException("'TableSpoon' UOM not found....");
-            log.debug("'TableSpoon' UOM  not found");
+            throw new RuntimeException("'TableSpoon' UOM not found....");
+            //log.debug("'TableSpoon' UOM  not found");
         Optional<UnitOfMeasure> teaSpoonOptional = unitOfMeasureRepository.findByDescription("Teaspoon");
         if(!teaSpoonOptional.isPresent())
-            //throw new RuntimeException("'Teaspoon' UOM not found....");
-            log.debug("'Teaspoon' UOM  not found");
+            throw new RuntimeException("'Teaspoon' UOM not found....");
+            //log.debug("'Teaspoon' UOM  not found");
         Optional<UnitOfMeasure> dashOptional = unitOfMeasureRepository.findByDescription("Dash");
         if(!dashOptional.isPresent())
-            //throw new RuntimeException("'Dash' UOM not found....");
-            log.debug("'Dash' UOM  not found");
+            throw new RuntimeException("'Dash' UOM not found....");
+            //log.debug("'Dash' UOM  not found");
         Optional<UnitOfMeasure> pintOptional = unitOfMeasureRepository.findByDescription("Pint");
         if(!pintOptional.isPresent())
-            //throw new RuntimeException("'Pint' UOM not found....");
-            log.debug("'Pint' UOM  not found");
+            throw new RuntimeException("'Pint' UOM not found....");
+            //log.debug("'Pint' UOM  not found");
         Optional<UnitOfMeasure> cupOptional = unitOfMeasureRepository.findByDescription("Cup");
         if(!cupOptional.isPresent())
-            //throw new RuntimeException("'Cup' UOM not found....");
-            log.debug("'Cup' UOM  not found");
+            throw new RuntimeException("'Cup' UOM not found....");
+            //log.debug("'Cup' UOM  not found");
 
         //Get Optionals
         UnitOfMeasure eachUOM = eachUOMOptional.get();
