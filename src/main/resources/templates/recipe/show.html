@@ -37,12 +37,17 @@
                             <div class="col-md-3">
                                 <h5><b>Categories:</b></h5>
                             </div>
-                            <div class="col-md-9">
+                            <div class="col-md-3">
                                 <ul th:each="cat: ${recipe.categories}">
                                     <li th:text="${cat.description}">111</li>
                                     <li th:remove="all">cat two</li>
                                     <li th:remove="all">cat three</li>
                                 </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <img src="../../static/images/guacamole400x400WithX.jpg"
+                                     th:src="@{'/recipe/' + ${recipe.id} + '/recipeimage'}"
+                                     width="200" height="200">
                             </div>
                         </div>
                         <div class="row">
