@@ -79,9 +79,11 @@ class ImageControllerTest {
 
         String s = "fake image test";
         int i =0;
-        Byte[] byteArray = new Byte[s.length()];
+        Byte[] byteArray = new Byte[s.getBytes().length];
 
-        for(Byte primbyte: byteArray){
+
+
+        for(Byte primbyte: s.getBytes()){
             byteArray[i++] = primbyte;
         }
 
